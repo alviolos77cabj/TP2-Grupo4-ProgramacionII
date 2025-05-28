@@ -3,11 +3,11 @@ package modelo;
 import interfaces.IArbol;
 import interfaces.INodo;
 
-public class Arbol<T> implements IArbol<T> {
+public class ArbolPorDni<T> implements IArbol<T> {
 
     private INodo<T> raiz;
 
-    public Arbol() {
+    public ArbolPorDni() {
         this.raiz = null;
     }
 
@@ -101,9 +101,8 @@ public class Arbol<T> implements IArbol<T> {
         }
     }
 
-	@Override
-	public void eliminar(T dato) {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public void eliminar(T dato) {
+        // no implementado
+    }
 }

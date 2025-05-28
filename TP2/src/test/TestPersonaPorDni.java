@@ -1,11 +1,12 @@
 package test;
 
-import modelo.Arbol;
+import modelo.ArbolPorDni;
 import modelo.Persona;
+import interfaces.INodo;
 
-public class TestArbolPersona {
+public class TestPersonaPorDni {
     public static void main(String[] args) {
-        Arbol<Persona> arbol = new Arbol<>();
+        ArbolPorDni<Persona> arbol = new ArbolPorDni<>();
 
         arbol.insertar(new Persona(47122255, "Diego"));
         arbol.insertar(new Persona(46585461, "Agustina"));
@@ -23,21 +24,21 @@ public class TestArbolPersona {
         arbol.insertar(new Persona(33765212, "Norma"));
         arbol.insertar(new Persona(32329983, "Telma"));
 
-        System.out.println("\nRECORRIDO INORDEN:");
+        System.out.println("\nRECORRIDO INORDEN (Por DNI):");
         arbol.recorridoInorden();
 
-        System.out.println("\nRECORRIDO PREORDEN:");
+        System.out.println("\nRECORRIDO PREORDEN (Por DNI):");
         arbol.recorridoPreorden();
 
-        System.out.println("\nRECORRIDO POSTORDEN");
+        System.out.println("\nRECORRIDO POSTORDEN (Por DNI)");
         arbol.recorridoPostorden();
 
-        var nodo = arbol.buscar(new Persona(47297659, "Micaela"));
+        System.out.println("\nBusco a la persona con DNI 47297659:");
+        INodo<Persona> nodo = arbol.buscar(new Persona(47297659, "Micaela"));
         if (nodo != null) {
-            System.out.println(nodo.getDato());
+            System.out.println("Encontrado: " + nodo.getDato());
         } else {
-            System.out.println("Persona no encontrada en el árbol.");
+            System.out.println("No encontrado");
         }
-
     }
 }
