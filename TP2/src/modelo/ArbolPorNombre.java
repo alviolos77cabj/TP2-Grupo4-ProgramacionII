@@ -128,4 +128,12 @@ public class ArbolPorNombre<T> implements IArbol<T> {
 
         return nodo;
     }
+    
+    private INodo<T> encontrarMinimo(INodo<T> nodo) {
+        while (nodo.getIzquierdo() != null) {
+            nodo = nodo.getIzquierdo();
+        }
+        return nodo;
+    }
+
 }
