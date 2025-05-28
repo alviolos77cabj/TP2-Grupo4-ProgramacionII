@@ -132,6 +132,15 @@ public class ArbolPorDni<T> implements IArbol<T> {
             nodo.setDerecho(eliminarRec(nodo.getDerecho(), sucesor.getDato()));
         }
 
+        
         return nodo;
     }
+    
+    private INodo<T> encontrarMinimo(INodo<T> nodo) {
+        while (nodo.getIzquierdo() != null) {
+            nodo = nodo.getIzquierdo();
+        }
+        return nodo;
+    }
+
 }
