@@ -40,5 +40,17 @@ public class TestPersonaPorDni {
         } else {
             System.out.println("No encontrado");
         }
+        
+        System.out.println("\nElimino a 'Jose':");
+        arbol.eliminar(new Persona(4323008, "Jose"));
+        arbol.recorridoInorden();
+        
+        System.out.println("\nElimino a 'Romina':");
+        arbol.eliminar(new Persona(261862932, "Romina"));
+        arbol.recorridoInorden();
+        
+        System.out.println("\nElimino a 'Diego':");
+        arbol.eliminar(new Persona(47122255, "Diego"));
+        arbol.recorridoInorden();
     }
 }
