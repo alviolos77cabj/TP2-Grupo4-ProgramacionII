@@ -103,7 +103,35 @@ public class Arbol<T> implements IArbol<T> {
 
 	@Override
 	public void eliminar(T dato) {
-		// TODO Auto-generated method stub
-		
+	    raiz = eliminarRec(raiz, dato);
+	}
+
+	private INodo<T> eliminarRec(INodo<T> nodo, T dato) {
+	    if (nodo == null) return null;
+
+	    int aux = comparar(dato, nodo.getDato());
+
+	    if (aux < 0) {
+	        nodo.setIzquierdo(eliminarRec(nodo.getIzquierdo(), dato));
+	    } else if (aux > 0) {
+	        nodo.setDerecho(eliminarRec(nodo.getDerecho(), dato));
+	    } else {
+	        // 0 hijos 
+	        if (nodo.getIzquierdo() == null && nodo.getDerecho() == null) {
+	            return null;
+	        }
+	        // 1 hijo 
+	        else if (nodo.getIzquierdo() == null) {
+	            return nodo.getDerecho();
+	        } else if (nodo.getDerecho() == null) {
+	            return nodo.getIzquierdo();
+	        }
+	        // 2 hijos 
+	        INodo<T> sucesor = encontrarMinimo(nodo.getDerecho()); 
+	        nodo.setDato(sucesor.getDato());
+	        nodo.setDerecho(eliminarRec(nodo.getDerecho(), sucesor.getDato()));
+	    }
+
+	    return nodo;
 	}
 }
