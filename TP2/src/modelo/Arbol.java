@@ -12,7 +12,6 @@ public class Arbol<T> implements IArbol<T> {
     }
 
     private int comparar(T a, T b) {
-        // 🔧 Comparación manual por DNI
         int dniA = ((Persona) a).getDni();
         int dniB = ((Persona) b).getDni();
 
