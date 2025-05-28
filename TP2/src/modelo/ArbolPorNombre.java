@@ -11,14 +11,13 @@ public class ArbolPorNombre<T> implements IArbol<T> {
         this.raiz = null;
     }
 
-      private int comparar(T a, T b) {
+    private int comparar(T a, T b) {
         Persona personaA = (Persona) a;
         Persona personaB = (Persona) b;
         String nombreA = personaA.getNombre();
         String nombreB = personaB.getNombre();
         return nombreA.compareToIgnoreCase(nombreB);
     }
-
 
     @Override
     public void insertar(T dato) {
@@ -99,6 +98,45 @@ public class ArbolPorNombre<T> implements IArbol<T> {
 
     @Override
     public void eliminar(T dato) {
-        // no implementado
+        raiz = eliminarRec(raiz, dato);
+    }
+
+    private INodo<T> eliminarRec(INodo<T> nodo, T dato) {
+        if (nodo == null) return null;
+
+        int comparacion = comparar(dato, nodo.getDato());
+
+        if (comparacion < 0) {
+            nodo.setIzquierdo(eliminarRec(nodo.getIzquierdo(), dato));
+        } else if (comparacion > 0) {
+            nodo.setDerecho(eliminarRec(nodo.getDerecho(), dato));
+        } else {
+            // nodo encontrado
+            // Caso 1: sin hijos
+            if (nodo.getIzquierdo() == null && nodo.getDerecho() == null) {
+                return null;
+            }
+            // Caso 2: un hijo derecho
+            else if (nodo.getIzquierdo() == null) {
+                return nodo.getDerecho();
+            }
+            // Caso 3: un hijo izquierdo
+            else if (nodo.getDerecho() == null) {
+                return nodo.getIzquierdo();
+            }
+            // Caso 4: dos hijos
+            INodo<T> sucesor = encontrarMinimo(nodo.getDerecho());
+            nodo.setDato(sucesor.getDato());
+            nodo.setDerecho(eliminarRec(nodo.getDerecho(), sucesor.getDato()));
+        }
+
+        return nodo;
+    }
+
+    private INodo<T> encontrarMinimo(INodo<T> nodo) {
+        while (nodo.getIzquierdo() != null) {
+            nodo = nodo.getIzquierdo();
+        }
+        return nodo;
     }
 }

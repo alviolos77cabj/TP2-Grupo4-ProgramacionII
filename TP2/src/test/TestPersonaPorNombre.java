@@ -8,8 +8,6 @@ public class TestPersonaPorNombre {
     public static void main(String[] args) {
         ArbolPorNombre<Persona> arbolPorNombre = new ArbolPorNombre<>();
 
-        System.out.println("--- Insertando personas en el árbol (ordenado por nombre) ---");
-
         arbolPorNombre.insertar(new Persona(47122255, "Diego"));
         arbolPorNombre.insertar(new Persona(46585461, "Agustina"));
         arbolPorNombre.insertar(new Persona(47069222, "Gael"));
@@ -31,7 +29,6 @@ public class TestPersonaPorNombre {
 
         System.out.println("\n--- RECORRIDO INORDEN (Ordenado Alfabéticamente por Nombre) ---");
         arbolPorNombre.recorridoInorden();
-
 
         System.out.println("\n--- RECORRIDO PREORDEN (Ordenado por Nombre) ---");
         arbolPorNombre.recorridoPreorden();
@@ -72,5 +69,22 @@ public class TestPersonaPorNombre {
         } else {
             System.out.println("No se encontró a Lautaro.");
         }
+
+        //implementamos el eliminar:
+        System.out.println("\n--- Eliminando a 'Jose' ---");
+        arbolPorNombre.eliminar(new Persona(0, "Jose"));
+        arbolPorNombre.recorridoInorden();
+
+        System.out.println("\n--- Eliminando a 'Romina' ---");
+        arbolPorNombre.eliminar(new Persona(0, "Romina"));
+        arbolPorNombre.recorridoInorden();
+
+        System.out.println("\n--- Eliminando a 'Diego' ---");
+        arbolPorNombre.eliminar(new Persona(0, "Diego"));
+        arbolPorNombre.recorridoInorden();
+
+        System.out.println("\n--- Eliminando a 'ANA' ---");
+        arbolPorNombre.eliminar(new Persona(0, "ANA"));
+        arbolPorNombre.recorridoInorden();
     }
 }
