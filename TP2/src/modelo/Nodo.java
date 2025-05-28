@@ -2,45 +2,45 @@ package modelo;
 
 import interfaces.INodo;
 
-public class Nodo implements INodo {
-	
-    private int dato; //Persona ---> T ----> Objets
-    private INodo izquierdo;
-    private INodo derecho;
+public class Nodo<T> implements INodo<T> {
 
-    public Nodo(int dato) {
+    private T dato;
+    private INodo<T> izquierdo;
+    private INodo<T> derecho;
+
+    public Nodo(T dato) {
         this.dato = dato;
         this.izquierdo = null;
         this.derecho = null;
     }
 
     @Override
-    public int getDato() {
+    public T getDato() {
         return dato;
     }
 
     @Override
-    public void setDato(int dato) {
+    public void setDato(T dato) {
         this.dato = dato;
     }
 
     @Override
-    public INodo getIzquierdo() {
+    public INodo<T> getIzquierdo() {
         return izquierdo;
     }
 
     @Override
-    public void setIzquierdo(INodo izquierdo) {
+    public void setIzquierdo(INodo<T> izquierdo) {
         this.izquierdo = izquierdo;
     }
 
     @Override
-    public INodo getDerecho() {
+    public INodo<T> getDerecho() {
         return derecho;
     }
 
     @Override
-    public void setDerecho(INodo derecho) {
+    public void setDerecho(INodo<T> derecho) {
         this.derecho = derecho;
     }
 }
