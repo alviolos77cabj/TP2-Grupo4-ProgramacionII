@@ -6,35 +6,35 @@ import interfaces.INodo;
 
 public class TestPersonaPorDni {
     public static void main(String[] args) {
-        ArbolPorDni<Persona> arbol = new ArbolPorDni<>();
+        ArbolPorDni<Persona> arbolPorDni = new ArbolPorDni<>();
 
-        arbol.insertar(new Persona(47122255, "Diego"));
-        arbol.insertar(new Persona(46585461, "Agustina"));
-        arbol.insertar(new Persona(47069222, "Gael"));
-        arbol.insertar(new Persona(47345528, "Ariana"));
-        arbol.insertar(new Persona(47297659, "Micaela"));
-        arbol.insertar(new Persona(53232244, "Sofía"));
-        arbol.insertar(new Persona(98776996, "Maria"));
-        arbol.insertar(new Persona(4323008, "Jose"));
-        arbol.insertar(new Persona(41800869, "Federica"));
-        arbol.insertar(new Persona(25618203, "Mercedes"));
-        arbol.insertar(new Persona(17623499, "Alfredo"));
-        arbol.insertar(new Persona(261862932, "Romina"));
-        arbol.insertar(new Persona(22706833, "Camila"));
-        arbol.insertar(new Persona(33765212, "Norma"));
-        arbol.insertar(new Persona(32329983, "Telma"));
+        arbolPorDni.insertar(new Persona(47122255, "Diego"));
+        arbolPorDni.insertar(new Persona(46585461, "Agustina"));
+        arbolPorDni.insertar(new Persona(47069222, "Gael"));
+        arbolPorDni.insertar(new Persona(47345528, "Ariana"));
+        arbolPorDni.insertar(new Persona(47297659, "Micaela"));
+        arbolPorDni.insertar(new Persona(53232244, "Sofía"));
+        arbolPorDni.insertar(new Persona(98776996, "Maria"));
+        arbolPorDni.insertar(new Persona(4323008, "Jose"));
+        arbolPorDni.insertar(new Persona(41800869, "Federica"));
+        arbolPorDni.insertar(new Persona(25618203, "Mercedes"));
+        arbolPorDni.insertar(new Persona(17623499, "Alfredo"));
+        arbolPorDni.insertar(new Persona(261862932, "Romina"));
+        arbolPorDni.insertar(new Persona(22706833, "Camila"));
+        arbolPorDni.insertar(new Persona(33765212, "Norma"));
+        arbolPorDni.insertar(new Persona(32329983, "Telma"));
 
         System.out.println("\nRECORRIDO INORDEN (Por DNI):");
-        arbol.recorridoInorden();
+        arbolPorDni.recorridoInorden();
 
         System.out.println("\nRECORRIDO PREORDEN (Por DNI):");
-        arbol.recorridoPreorden();
+        arbolPorDni.recorridoPreorden();
 
         System.out.println("\nRECORRIDO POSTORDEN (Por DNI)");
-        arbol.recorridoPostorden();
+        arbolPorDni.recorridoPostorden();
 
         System.out.println("\nBusco a la persona con DNI 47297659:");
-        INodo<Persona> nodo = arbol.buscar(new Persona(47297659, "Micaela"));
+        INodo<Persona> nodo = arbolPorDni.buscar(new Persona(47297659, "Micaela"));
         if (nodo != null) {
             System.out.println("Encontrado: " + nodo.getDato());
         } else {
@@ -42,15 +42,15 @@ public class TestPersonaPorDni {
         }
         
         System.out.println("\nElimino a 'Jose':");
-        arbol.eliminar(new Persona(4323008, "Jose"));
-        arbol.recorridoInorden();
+        arbolPorDni.eliminar(new Persona(4323008, "Jose"));
+        arbolPorDni.recorridoInorden();
         
         System.out.println("\nElimino a 'Romina':");
-        arbol.eliminar(new Persona(261862932, "Romina"));
-        arbol.recorridoInorden();
+        arbolPorDni.eliminar(new Persona(261862932, "Romina"));
+        arbolPorDni.recorridoInorden();
         
         System.out.println("\nElimino a 'Diego':");
-        arbol.eliminar(new Persona(47122255, "Diego"));
-        arbol.recorridoInorden();
+        arbolPorDni.eliminar(new Persona(47122255, "Diego"));
+        arbolPorDni.recorridoInorden();
     }
 }
